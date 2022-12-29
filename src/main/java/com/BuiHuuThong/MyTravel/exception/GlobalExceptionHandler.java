@@ -1,9 +1,10 @@
 package com.BuiHuuThong.MyTravel.exception;
 
 import com.BuiHuuThong.MyTravel.util.Util;
+
+import javax.servlet.ServletException;
 import javax.validation.ConstraintViolationException;
 
-import jakarta.servlet.ServletException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.NestedCheckedException;
 import org.springframework.core.NestedRuntimeException;

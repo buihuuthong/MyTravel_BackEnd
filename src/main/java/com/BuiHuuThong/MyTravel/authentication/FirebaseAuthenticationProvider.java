@@ -1,7 +1,7 @@
 package com.BuiHuuThong.MyTravel.authentication;
 
 import com.google.firebase.auth.FirebaseAuthException;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.Authentication;
@@ -11,14 +11,10 @@ import org.springframework.stereotype.Component;
 import java.util.Map;
 
 @Component
+@RequiredArgsConstructor
 public class FirebaseAuthenticationProvider implements AuthenticationProvider {
 
     private final FirebaseService firebaseService;
-
-    @Autowired
-    public FirebaseAuthenticationProvider(FirebaseService firebaseService) {
-        this.firebaseService = firebaseService;
-    }
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {

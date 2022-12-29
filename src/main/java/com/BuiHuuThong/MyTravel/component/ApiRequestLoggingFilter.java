@@ -1,8 +1,8 @@
 package com.BuiHuuThong.MyTravel.component;
 
-import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.AbstractRequestLoggingFilter;
+import javax.servlet.http.HttpServletRequest;
 
 @Component
 public class ApiRequestLoggingFilter extends AbstractRequestLoggingFilter {
