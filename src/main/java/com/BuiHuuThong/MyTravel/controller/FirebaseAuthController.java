@@ -38,7 +38,7 @@ public class FirebaseAuthController {
     }
 
     @GetMapping("/users")
-    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     @SecurityRequirement(name = "FirebaseToken")
     @Operation(summary = "Lấy danh sách user")
     public List<User> getUsers() {

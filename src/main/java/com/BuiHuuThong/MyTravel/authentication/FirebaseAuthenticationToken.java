@@ -1,42 +1,27 @@
 package com.BuiHuuThong.MyTravel.authentication;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.security.authentication.AbstractAuthenticationToken;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken;
 
-import java.util.Map;
+import java.util.Collection;
 
-public class FirebaseAuthenticationToken extends AbstractAuthenticationToken {
+@Getter
+@Setter
+public class FirebaseAuthenticationToken extends PreAuthenticatedAuthenticationToken {
+    private String role;
 
-    private final String uid;
-    private final String idToken;
-    private final Map<String, Object> claims;
-
-    public FirebaseAuthenticationToken(String uid, String idToken) {
-        super(null);
-        this.uid = uid;
-        this.idToken = idToken;
-        this.claims = null;
-        setAuthenticated(true);
+    public FirebaseAuthenticationToken(Object aPrincipal, Object aCredentials) {
+        super(aPrincipal, aCredentials);
     }
 
-    public FirebaseAuthenticationToken(String uid, String idToken, Map<String, Object> claims) {
-        super(null);
-        this.uid = uid;
-        this.idToken = idToken;
-        this.claims = claims;
-        setAuthenticated(true);
-    }
-
-    @Override
-    public Object getCredentials() {
-        return idToken;
-    }
-
-    @Override
-    public Object getPrincipal() {
-        return uid;
-    }
-
-    public Map<String, Object> getClaims() {
-        return claims;
+    public FirebaseAuthenticationToken(
+            Object aPrincipal,
+            Object aCredentials,
+            Collection<? extends GrantedAuthority> anAuthorities
+    ) {
+        super(aPrincipal, aCredentials, anAuthorities);
     }
 }
